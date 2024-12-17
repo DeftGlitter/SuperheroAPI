@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { ISuperhero } from 'src/app/models/ISuperhero.model';
 import { RestService } from 'src/app/services/rest.service';
@@ -11,9 +11,26 @@ import { RestService } from 'src/app/services/rest.service';
 })
 export class HomeComponent implements OnInit {
   ListaHeroes: ISuperhero[] = [];
-  constructor(private restService: RestService, private router: Router) {}
+  nombreBusqueda: string = '';
+  constructor(
+    private restService: RestService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.cargarHeroes();
+
+    // Captura el parámetro 'myUrl' y realiza la búsqueda (desde buscador component)
+    this.route.queryParams.subscribe((params) => {
+      const nombre = params['search'];
+      if (nombre) {
+        this.buscarHeroes(nombre);
+      }
+    });
+  }
+
+  cargarHeroes() {
     const peticiones = []; //array vacío donde se guardarán todas las peticiones HTTP
 
     // Crear un array con las peticiones
@@ -31,13 +48,20 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getDatos(id: string) {
-    this.restService.getHero(id).subscribe((response) => {
-      this.ListaHeroes.push(response); //guardamos la peticion en el array Listaheroes
+  private buscarHeroes(nombre: string): void {
+    this.restService.searchByName(nombre).subscribe({
+      next: (data) => {
+        this.ListaHeroes = data.results || [];
+        this.nombreBusqueda = nombre;
+      },
+      error: (err) => {
+        console.error('Error en la búsqueda:', err);
+        this.ListaHeroes = [];
+      },
     });
   }
 
   onHeroeSelected(hero: ISuperhero): void {
-    this.router.navigate(['/detail']);
+    this.router.navigate(['/detail', hero.id]);
   }
 }
