@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './component/card/card.component';
 import { ButtonDetailComponent } from './component/button-detail/button-detail.component';
+import { DetailHeroComponent } from './component/detail-hero/detail-hero.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ButtonDetailComponent } from './component/button-detail/button-detail.c
     ButtonHeaderComponent,
     CardComponent,
     ButtonDetailComponent,
+    DetailHeroComponent,
   ],
   imports: [
     BrowserModule,

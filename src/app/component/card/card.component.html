@@ -2,6 +2,6 @@
   <img [src]="heroe.image.url" class="card-img-top" alt="{{ heroe.name }}" />
   <div class="card-body text-center">
     <h5 class="card-title">{{ heroe.name }}</h5>
-    <app-button-detail></app-button-detail>
+    <app-button-detail (heroSelect)="onSelectHeroe()"></app-button-detail>
   </div>
 </div>

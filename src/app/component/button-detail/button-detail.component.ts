@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { ISuperhero } from 'src/app/models/ISuperhero.model';
 
 @Component({
   selector: 'app-button-detail',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-detail.component.css'],
 })
 export class ButtonDetailComponent implements OnInit {
+  @Input() hero!: ISuperhero;
+  @Output() heroSelect: EventEmitter<ISuperhero> =
+    new EventEmitter<ISuperhero>();
   constructor() {}
 
   ngOnInit(): void {}
 
-  onClick(): void {}
+  onClick(): void {
+    this.heroSelect.emit(this.hero);
+  }
 }

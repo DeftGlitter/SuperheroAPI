@@ -1,0 +1,131 @@
+<div class="container my-5">
+  <div class="card shadow-lg">
+    <div class="row g-0">
+      <!-- Imagen del héroe -->
+      <div class="col-md-4">
+        <img
+          [src]="
+            Heroe?.image?.url ||
+            'https://via.placeholder.com/300x400?text=No+Image'
+          "
+          class="img-fluid rounded-start"
+          alt="{{ Heroe?.name || 'Héroe desconocido' }}"
+        />
+      </div>
+      <!-- Información del héroe -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <!-- Título con el nombre del héroe -->
+          <h2 class="card-title text-center mb-4">
+            {{ Heroe?.name || "Héroe desconocido" }}
+          </h2>
+
+          <!-- Biografía -->
+          <h5 class="mb-3">Biografía</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Nombre Completo:</strong>
+              {{ Heroe?.biography?.['full-name'] || 'N/A' }}
+            </li>
+            <li>
+              <strong>Alter egos:</strong>
+              {{ Heroe?.biography?.['alter-egos'] || 'N/A' }}
+            </li>
+            <li>
+              <strong>Lugar de nacimiento:</strong>
+              {{ Heroe?.biography?.['place-of-birth'] || 'N/A' }}
+            </li>
+            <li>
+              <strong>Primera aparición:</strong>
+              {{ Heroe?.biography?.['first-appearance'] || 'N/A' }}
+            </li>
+            <li>
+              <strong>Editor:</strong>
+              {{ Heroe?.biography?.publisher || "N/A" }}
+            </li>
+            <li>
+              <strong>Alineación:</strong>
+              {{ Heroe?.biography?.alignment || "N/A" }}
+            </li>
+          </ul>
+
+          <!-- Apariencia -->
+          <h5 class="mt-4 mb-3">Apariencia</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Género:</strong> {{ Heroe?.appearance?.gender || "N/A" }}
+            </li>
+            <li>
+              <strong>Raza:</strong> {{ Heroe?.appearance?.race || "N/A" }}
+            </li>
+            <li>
+              <strong>Altura:</strong>
+              {{ Heroe?.appearance?.height?.join(", ") || "N/A" }}
+            </li>
+            <li>
+              <strong>Peso:</strong>
+              {{ Heroe?.appearance?.weight?.join(", ") || "N/A" }}
+            </li>
+            <li>
+              <strong>Color de ojos:</strong>
+              {{ Heroe?.appearance?.['eye-color'] || 'N/A' }}
+            </li>
+            <li>
+              <strong>Color de cabello:</strong>
+              {{ Heroe?.appearance?.['hair-color'] || 'N/A' }}
+            </li>
+          </ul>
+
+          <!-- Estadísticas de poder -->
+          <h5 class="mt-4 mb-3">Estadísticas de Poder</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Inteligencia:</strong>
+              {{ Heroe?.powerstats?.intelligence || "N/A" }}
+            </li>
+            <li>
+              <strong>Fuerza:</strong>
+              {{ Heroe?.powerstats?.strength || "N/A" }}
+            </li>
+            <li>
+              <strong>Velocidad:</strong>
+              {{ Heroe?.powerstats?.speed || "N/A" }}
+            </li>
+            <li>
+              <strong>Durabilidad:</strong>
+              {{ Heroe?.powerstats?.durability || "N/A" }}
+            </li>
+            <li>
+              <strong>Poder:</strong> {{ Heroe?.powerstats?.power || "N/A" }}
+            </li>
+            <li>
+              <strong>Combate:</strong> {{ Heroe?.powerstats?.combat || "N/A" }}
+            </li>
+          </ul>
+
+          <!-- Conexiones -->
+          <h5 class="mt-4 mb-3">Conexiones</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Afiliaciones:</strong>
+              {{ Heroe?.connections?.['group-affiliation'] || 'N/A' }}
+            </li>
+            <li>
+              <strong>Parientes:</strong>
+              {{ Heroe?.connections?.relatives || "N/A" }}
+            </li>
+          </ul>
+
+          <!-- Ocupación y Base -->
+          <h5 class="mt-4 mb-3">Trabajo</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Ocupación:</strong> {{ Heroe?.work?.occupation || "N/A" }}
+            </li>
+            <li><strong>Base:</strong> {{ Heroe?.work?.base || "N/A" }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
