@@ -1,1 +1,5 @@
-<p>header works!</p>
+<app-button-header
+  *ngFor="let btn of buttons"
+  [label]="btn.label"
+  [route]="btn.route"
+></app-button-header>

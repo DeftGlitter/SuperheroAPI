@@ -11,7 +11,7 @@ export class RestService {
     'https://superheroapi.com/api.php/140b2dbc4e8dc2bc0d39c38ef77e1476/';
   constructor(private http: HttpClient) {}
 
-  getAll(id: string): Observable<ISuperhero> {
+  getHero(id: string): Observable<ISuperhero> {
     return this.http.get<ISuperhero>(this.baseUrl + '/' + id);
   }
 }
