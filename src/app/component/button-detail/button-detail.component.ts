@@ -7,14 +7,12 @@ import { ISuperhero } from 'src/app/models/ISuperhero.model';
   styleUrls: ['./button-detail.component.css'],
 })
 export class ButtonDetailComponent implements OnInit {
-  @Input() hero!: ISuperhero;
-  @Output() heroSelect: EventEmitter<ISuperhero> =
-    new EventEmitter<ISuperhero>();
+  @Output() heroSelect: EventEmitter<void> = new EventEmitter<void>();
   constructor() {}
 
   ngOnInit(): void {}
 
   onClick(): void {
-    this.heroSelect.emit(this.hero);
+    this.heroSelect.emit();
   }
 }

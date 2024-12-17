@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './component/card/card.component';
 import { ButtonDetailComponent } from './component/button-detail/button-detail.component';
 import { DetailHeroComponent } from './component/detail-hero/detail-hero.component';
+import { BuscadorComponent } from './component/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DetailHeroComponent } from './component/detail-hero/detail-hero.compone
     CardComponent,
     ButtonDetailComponent,
     DetailHeroComponent,
+    BuscadorComponent,
   ],
   imports: [
     BrowserModule,
