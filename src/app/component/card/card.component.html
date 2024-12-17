@@ -1,4 +1,7 @@
-<div>
-  <img [src]="heroe.image.url" />
-  <h1>{{ heroe.name }}</h1>
+<div class="card h-100 shadow-sm">
+  <img [src]="heroe.image.url" class="card-img-top" alt="{{ heroe.name }}" />
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ heroe.name }}</h5>
+    <app-button-detail></app-button-detail>
+  </div>
 </div>
