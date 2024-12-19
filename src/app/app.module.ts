@@ -13,6 +13,7 @@ import { CardComponent } from './component/card/card.component';
 import { ButtonDetailComponent } from './component/button-detail/button-detail.component';
 import { DetailHeroComponent } from './component/detail-hero/detail-hero.component';
 import { BuscadorComponent } from './component/buscador/buscador.component';
+import { FiltroComponent } from './component/filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BuscadorComponent } from './component/buscador/buscador.component';
     ButtonDetailComponent,
     DetailHeroComponent,
     BuscadorComponent,
+    FiltroComponent,
   ],
   imports: [
     BrowserModule,
